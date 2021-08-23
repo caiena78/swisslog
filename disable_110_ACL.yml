@@ -1,0 +1,11 @@
+---
+- name: set ACL via CLI
+  hosts: all
+  tasks:
+   - name: Disable ACL on TOUCH PANEL- 110
+     cisco.ios.ios_config:
+      lines:         
+      - no ip access-group SWISSLOG in
+      parents: ['interface GigabitEthernet0/22']
+      save_when: modified  
+  
