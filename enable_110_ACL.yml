@@ -1,0 +1,12 @@
+---
+- name: set ACL via CLI
+  hosts: lab
+  tasks:
+   - name: Lab Tube Station
+     cisco.ios.ios_config:
+      lines:  
+      - desc SWISSLOG TOUCH PANEL- 110
+      - ip access-group SWISSLOG in
+      parents: ['interface GigabitEthernet0/22']
+      save_when: modified  
+  
